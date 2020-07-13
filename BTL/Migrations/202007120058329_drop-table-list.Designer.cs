@@ -7,13 +7,13 @@ namespace BTL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class droptablecolor : IMigrationMetadata
+    public sealed partial class droptablelist : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(droptablecolor));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(droptablelist));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006281508139_drop-table-color"; }
+            get { return "202007120058329_drop-table-list"; }
         }
         
         string IMigrationMetadata.Source

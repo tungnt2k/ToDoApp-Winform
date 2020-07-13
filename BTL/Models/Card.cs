@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BTL.Models
 {
-    public class Task
+    public class Card
     {
         [Key]
         public int Id { get; set; }
@@ -16,18 +16,25 @@ namespace BTL.Models
         [StringLength(255)]
         public string Name { get; set; }
         [Required]
-        public int CardId { get; set; }
+        public int BoardId { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public bool IsDone { get; set; }
+        public bool Notification { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        [ForeignKey("CardId")]
-        public Card Card { get; set; }
-        public Task()
+        [ForeignKey("BoardId")]
+        public Board Board { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Task> Tasks { get; set; }
+        public Card()
         {
-            IsDone = false;
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
+            IsDone = false;
+            Notification = false;
         }
     }
 }

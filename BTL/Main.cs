@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BTL.CustomEventArgs;
 using BTL.Forms;
 using BTL.Models;
 using FontAwesome.Sharp;
@@ -21,11 +22,9 @@ namespace BTL
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        private User user;
-        public Main(User u)
+        public Main()
         {
             InitializeComponent();
-            user = u;
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -44,7 +43,7 @@ namespace BTL
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
-        //Methods
+
         private void ActivateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -63,9 +62,7 @@ namespace BTL
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-                //Current Child Form Icon
-                iconCurrentChildForm.IconChar = currentBtn.IconChar;
-                iconCurrentChildForm.IconColor = color;
+                
 
             }
         }
@@ -85,34 +82,43 @@ namespace BTL
         {
             DisableButton();
             leftBorderBtn.Visible = false;
-            iconCurrentChildForm.IconChar = currentBtn.IconChar;
-            iconCurrentChildForm.IconColor = Color.MediumPurple;
-            lblTitleChildForm.Text = "Home";
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            BoardForm bf = new BoardForm();
+            bf.BoardClick += new EventHandler<BoardEventArgs>(BoardClick);
+            OpenChildForm(bf);
             
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
+        protected void BoardClick(object sender, BoardEventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new TaskForm(user));
+            CardForm cf = new CardForm(e.board);
+            cf.BtnBackClick += new EventHandler(ListForm_btnBackClick);
+            cf.CardClick += new EventHandler<CardEventArgs>(CardFrom_CardClick);
+            OpenChildForm(cf);
         }
+
+        protected void CardFrom_CardClick(object sender, CardEventArgs e)
+        {
+            TaskForm tf = new TaskForm(e.card);
+            tf.Show();
+        }
+
+        protected void ListForm_btnBackClick(object sender, EventArgs e)
+        {
+            BoardForm bf = new BoardForm();
+            bf.BoardClick += new EventHandler<BoardEventArgs>(BoardClick);
+            OpenChildForm(bf);
+        }
+
 
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm(new UserForm(user));
-        }
-
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new CategoryForm(user));
         }
 
         private void gunaPictureBox1_Click(object sender, EventArgs e)
@@ -139,13 +145,11 @@ namespace BTL
 
         private void OpenChildForm(Form childForm)
         {
-            //open only form
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
             }
             currentChildForm = childForm;
-            //End
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -153,12 +157,11 @@ namespace BTL
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitleChildForm.Text = childForm.Text;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Application.Exit();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)

@@ -7,13 +7,13 @@ namespace BTL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changestatustocompleted : IMigrationMetadata
+    public sealed partial class initmodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changestatustocompleted));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initmodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006281548221_change-status-to-completed"; }
+            get { return "202007110239285_init-model"; }
         }
         
         string IMigrationMetadata.Source

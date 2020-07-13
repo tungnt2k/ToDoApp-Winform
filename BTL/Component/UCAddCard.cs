@@ -7,18 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BTL.Models;
 
 namespace BTL.Component
 {
-    public partial class CategoryComponent : UserControl
+    public partial class UCAddCard : System.Windows.Forms.UserControl
     {
-        private Category category;
-        public CategoryComponent(Category cate)
+        public event EventHandler BtnAddClick;
+        public UCAddCard()
         {
             InitializeComponent();
-            category = cate;
-            gunaLabel1.Text = cate.Name;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (this.BtnAddClick != null)
+                this.BtnAddClick(this, e);
         }
     }
 }

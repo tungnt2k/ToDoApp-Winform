@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task = BTL.Models.Task;
+using BTL.Models;
 
 namespace BTL.Component
 {
-    public partial class TaskComponent : UserControl
+    public partial class UCComment : System.Windows.Forms.UserControl
     {
-        private Task task;
-        public TaskComponent(Task t)
+        private Comment cmt;
+        public UCComment(Comment c)
         {
             InitializeComponent();
-            task = t;
-            gunaLabel1.Text = task.Title;
-            gunaCheckBox1.Checked = task.Completed;
+            this.cmt = c;
+            lbContentCmt.Text = c.Content;
+            lbTime.Text = c.CreatedAt.ToShortDateString();
         }
     }
 }

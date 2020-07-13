@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 
 namespace BTL.Models
 {
-    public class Category
+    public class Comment
     {
         [Key]
         public int Id { get; set; }
-        [Column(TypeName = "nvarchar")]
-        [StringLength(100)]
-        public string Name { get; set; }
+        [Column(TypeName = "ntext")]
+        public string Content { get; set; }
+        [Required]
+        public int CardId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
-
-        public  ICollection<Task> Tasks { get; set; }
+        [ForeignKey("CardId")]
+        public Card Card { get; set; }
+        public Comment()
+        {
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+        }
     }
 }

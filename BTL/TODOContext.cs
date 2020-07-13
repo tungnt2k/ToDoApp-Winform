@@ -20,26 +20,14 @@ namespace BTL
         {
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Board> Boards { get; set; }
+        public DbSet<Card> Cards { get; set; }
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Task>()
-                .HasRequired(t=>t.User)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-            modelBuilder.Entity<Task>()
-                .HasRequired(t => t.Category)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Category>()
-                .HasRequired(t => t.User)
-                .WithMany()
-                .WillCascadeOnDelete(false);
-
+            
         }
     }
 }

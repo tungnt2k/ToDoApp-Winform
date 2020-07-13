@@ -15,58 +15,77 @@ namespace BTL.Forms
 {
     public partial class TaskForm : Form
     {
-        private User user;
-        private List<Category> categories;
+        private Card card;
+        private List<Comment> comments;
         private List<Task> tasks;
-        private int possition = 10;
-        public TaskForm(User u)
+        public TaskForm(Card c)
         {
             InitializeComponent();
-            user = u;
-            loadData();
+            card = c;
+            loadTask();
+            loadComment();
         }
 
-        private void loadData()
+        private void loadComment()
         {
-            cbbCategory.DisplayMember = "Text";
-            cbbCategory.ValueMember = "Value";
-            pnlListTask.Controls.Clear();
+            flpComments.Controls.Clear();
             using (var dbContext = new TODOContext())
             {
-                categories = dbContext.Categories.Where(c => c.UserId == user.Id).ToList();
-                tasks = dbContext.Tasks.Where(t => t.UserId == user.Id).ToList();
-                foreach (var task in tasks)
-                {
-                    TaskComponent taskComponent = new TaskComponent(task);
-                    taskComponent.Top = possition;
-                    possition = taskComponent.Top + taskComponent.Height + 10;
-                    pnlListTask.Controls.Add(taskComponent);
-                }
-                categories.ForEach(c =>
-                {
-                    cbbCategory.Items.Add(new {Text = c.Name, Value = c.Id});
-                });
-
+                comments = dbContext.Comments.Where(c => c.CardId == card.Id).ToList();
             }
+
+            foreach (var comment in comments)
+            {
+                UCComment ucComment = new UCComment(comment);
+                flpComments.Controls.Add(ucComment);
+            }
+
+            UCAddComment ucAddComment = new UCAddComment(card);
+            ucAddComment.CmtAdded += new EventHandler(UCAddCmt_CmtAdded);
+            flpComments.Controls.Add(ucAddComment);
         }
 
-        private void gunaButton2_Click(object sender, EventArgs e)
+        protected void UCAddCmt_CmtAdded(object sender, EventArgs e)
+        {
+            loadComment();
+        }
+
+        private void loadTask()
+        {
+            flpTasks.Controls.Clear();
+            using (var dbContext = new TODOContext())
+            {
+                tasks = dbContext.Tasks.Where(c => c.CardId == card.Id).ToList();
+            }
+
+            foreach (var task in tasks)
+            {
+                UCTask ucTask = new UCTask(task);
+                flpTasks.Controls.Add(ucTask);
+            }
+
+            UCAddCard ucAdd = new UCAddCard();
+            ucAdd.BtnAddClick += new EventHandler(UCAdd_BtnAddClick);
+            flpTasks.Controls.Add(ucAdd);
+           
+        }
+
+        protected void UCAdd_BtnAddClick(object sender, EventArgs e)
         {
             Task task = new Task();
-            task.CategoryId = (cbbCategory.SelectedItem as dynamic).Value;
-            task.Content = tbContent.Text;
-            task.Title = tbTitle.Text;
-            task.Completed = false;
-            task.EstimateTime = int.Parse(numEstimateTime.Value.ToString());
-            task.CreatedAt = DateTime.Now;
-            task.UpdatedAt = DateTime.Now;
-            task.UserId = user.Id;
+            task.CardId = card.Id;
+            task.Name = "My task";
             using (var dbContext = new TODOContext())
             {
                 dbContext.Tasks.Add(task);
                 dbContext.SaveChanges();
-                loadData();
             }
+            loadTask();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

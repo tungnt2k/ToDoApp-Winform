@@ -134,23 +134,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\CategoryComponent.cs">
+    <Compile Include="Component\UCAddBoard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Component\CategoryComponent.Designer.cs">
-      <DependentUpon>CategoryComponent.cs</DependentUpon>
+    <Compile Include="Component\UCAddBoard.Designer.cs">
+      <DependentUpon>UCAddBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Component\TaskComponent.cs">
+    <Compile Include="Component\UCAddCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Component\TaskComponent.Designer.cs">
-      <DependentUpon>TaskComponent.cs</DependentUpon>
+    <Compile Include="Component\UCAddCard.Designer.cs">
+      <DependentUpon>UCAddCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CategoryForm.cs">
+    <Compile Include="Component\UCAddComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UCAddComment.Designer.cs">
+      <DependentUpon>UCAddComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\UCBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UCBoard.Designer.cs">
+      <DependentUpon>UCBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\UCComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UCComment.Designer.cs">
+      <DependentUpon>UCComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\UCTask.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UCTask.Designer.cs">
+      <DependentUpon>UCTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomEventArgs\BoardEventArgs.cs" />
+    <Compile Include="CustomEventArgs\CardEventArgs.cs" />
+    <Compile Include="Forms\BoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CategoryForm.Designer.cs">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
+    <Compile Include="Forms\BoardForm.Designer.cs">
+      <DependentUpon>BoardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CardForm.Designer.cs">
+      <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TaskForm.cs">
       <SubType>Form</SubType>
@@ -158,31 +190,18 @@
     <Compile Include="Forms\TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006241738460_initial.cs" />
-    <Compile Include="Migrations\202006241738460_initial.Designer.cs">
-      <DependentUpon>202006241738460_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202007110239285_init-model.cs" />
+    <Compile Include="Migrations\202007110239285_init-model.Designer.cs">
+      <DependentUpon>202007110239285_init-model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006281508139_drop-table-color.cs" />
-    <Compile Include="Migrations\202006281508139_drop-table-color.Designer.cs">
-      <DependentUpon>202006281508139_drop-table-color.cs</DependentUpon>
+    <Compile Include="Migrations\202007120058329_drop-table-list.cs" />
+    <Compile Include="Migrations\202007120058329_drop-table-list.Designer.cs">
+      <DependentUpon>202007120058329_drop-table-list.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006281548221_change-status-to-completed.cs" />
-    <Compile Include="Migrations\202006281548221_change-status-to-completed.Designer.cs">
-      <DependentUpon>202006281548221_change-status-to-completed.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="TODOContext.cs" />
-    <Compile Include="Forms\UserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,40 +209,53 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Task.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Component\CategoryComponent.resx">
-      <DependentUpon>CategoryComponent.cs</DependentUpon>
+    <Compile Include="Component\UCCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Component\UCCard.Designer.cs">
+      <DependentUpon>UCCard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Component\UCAddBoard.resx">
+      <DependentUpon>UCAddBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Component\TaskComponent.resx">
-      <DependentUpon>TaskComponent.cs</DependentUpon>
+    <EmbeddedResource Include="Component\UCAddCard.resx">
+      <DependentUpon>UCAddCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CategoryForm.resx">
-      <DependentUpon>CategoryForm.cs</DependentUpon>
+    <EmbeddedResource Include="Component\UCAddComment.resx">
+      <DependentUpon>UCAddComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\UCBoard.resx">
+      <DependentUpon>UCBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\UCCard.resx">
+      <DependentUpon>UCCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\UCComment.resx">
+      <DependentUpon>UCComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\UCTask.resx">
+      <DependentUpon>UCTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BoardForm.resx">
+      <DependentUpon>BoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CardForm.resx">
+      <DependentUpon>CardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006241738460_initial.resx">
-      <DependentUpon>202006241738460_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007110239285_init-model.resx">
+      <DependentUpon>202007110239285_init-model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006281508139_drop-table-color.resx">
-      <DependentUpon>202006281508139_drop-table-color.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006281548221_change-status-to-completed.resx">
-      <DependentUpon>202006281548221_change-status-to-completed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007120058329_drop-table-list.resx">
+      <DependentUpon>202007120058329_drop-table-list.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
