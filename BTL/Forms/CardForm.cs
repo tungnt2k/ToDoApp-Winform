@@ -35,7 +35,7 @@ namespace BTL.Forms
             flpCards.Controls.Clear();
             using (var dbContext = new TODOContext())
             {
-                cards = dbContext.Cards.ToList();
+                cards = dbContext.Cards.Where(c => c.BoardId == board.Id).ToList();
             }
             foreach (var card in cards)
             {

@@ -23,31 +23,11 @@ namespace BTL.Forms
             InitializeComponent();
             card = c;
             loadTask();
-            loadComment();
-        }
-
-        private void loadComment()
-        {
-            flpComments.Controls.Clear();
-            using (var dbContext = new TODOContext())
-            {
-                comments = dbContext.Comments.Where(c => c.CardId == card.Id).ToList();
-            }
-
-            foreach (var comment in comments)
-            {
-                UCComment ucComment = new UCComment(comment);
-                flpComments.Controls.Add(ucComment);
-            }
-
-            UCAddComment ucAddComment = new UCAddComment(card);
-            ucAddComment.CmtAdded += new EventHandler(UCAddCmt_CmtAdded);
-            flpComments.Controls.Add(ucAddComment);
         }
 
         protected void UCAddCmt_CmtAdded(object sender, EventArgs e)
         {
-            loadComment();
+            loadTask();
         }
 
         private void loadTask()
@@ -56,18 +36,35 @@ namespace BTL.Forms
             using (var dbContext = new TODOContext())
             {
                 tasks = dbContext.Tasks.Where(c => c.CardId == card.Id).ToList();
+                comments = dbContext.Comments.Where(c => c.CardId == card.Id).ToList();
             }
 
             foreach (var task in tasks)
             {
                 UCTask ucTask = new UCTask(task);
+                ucTask.DataUpdated += new EventHandler(UCTask_DataUpdated);
                 flpTasks.Controls.Add(ucTask);
             }
 
             UCAddCard ucAdd = new UCAddCard();
             ucAdd.BtnAddClick += new EventHandler(UCAdd_BtnAddClick);
             flpTasks.Controls.Add(ucAdd);
-           
+
+            foreach (var comment in comments)
+            {
+                UCComment ucComment = new UCComment(comment);
+                flpTasks.Controls.Add(ucComment);
+            }
+
+            UCAddComment ucAddComment = new UCAddComment(card);
+            ucAddComment.CmtAdded += new EventHandler(UCAddCmt_CmtAdded);
+            flpTasks.Controls.Add(ucAddComment);
+
+        }
+
+        protected void UCTask_DataUpdated(object sender, EventArgs e)
+        {
+            loadTask();
         }
 
         protected void UCAdd_BtnAddClick(object sender, EventArgs e)

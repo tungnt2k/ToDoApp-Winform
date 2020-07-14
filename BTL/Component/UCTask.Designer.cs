@@ -30,7 +30,7 @@
         {
             this.lbTaskName = new Guna.UI.WinForms.GunaLabel();
             this.gunaCheckBox1 = new Guna.UI.WinForms.GunaCheckBox();
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // lbTaskName
@@ -48,7 +48,7 @@
             // 
             this.gunaCheckBox1.BaseColor = System.Drawing.Color.White;
             this.gunaCheckBox1.CheckedOffColor = System.Drawing.Color.Gray;
-            this.gunaCheckBox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCheckBox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.gunaCheckBox1.FillColor = System.Drawing.Color.White;
             this.gunaCheckBox1.Location = new System.Drawing.Point(32, 34);
             this.gunaCheckBox1.Name = "gunaCheckBox1";
@@ -56,28 +56,28 @@
             this.gunaCheckBox1.TabIndex = 1;
             this.gunaCheckBox1.CheckedChanged += new System.EventHandler(this.gunaCheckBox1_CheckedChanged);
             // 
-            // btnDelete
+            // btnEdit
             // 
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDelete.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnDelete.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.IconSize = 32;
-            this.btnDelete.Location = new System.Drawing.Point(625, 27);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Rotation = 0D;
-            this.btnDelete.Size = new System.Drawing.Size(59, 36);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnEdit.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnEdit.IconSize = 32;
+            this.btnEdit.Location = new System.Drawing.Point(619, 12);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Rotation = 0D;
+            this.btnEdit.Size = new System.Drawing.Size(63, 42);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // UCTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gunaCheckBox1);
             this.Controls.Add(this.lbTaskName);
             this.Name = "UCTask";
@@ -91,6 +91,6 @@
 
         private Guna.UI.WinForms.GunaLabel lbTaskName;
         private Guna.UI.WinForms.GunaCheckBox gunaCheckBox1;
-        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnEdit;
     }
 }

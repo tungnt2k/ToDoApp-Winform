@@ -38,7 +38,7 @@ namespace BTL.Forms
             foreach (var board in boards)
             {
                 UCBoard ucBoard = new UCBoard(board);
-                ucBoard.ButtonClick += new EventHandler(UCBoard_btnClick);
+                ucBoard.LoadData += new EventHandler(UCBoard_btnClick);
                 ucBoard.ClickBoard+= new EventHandler<BoardEventArgs>(UCBoard_Click);
                 flpListBoard.Controls.Add(ucBoard);
             }

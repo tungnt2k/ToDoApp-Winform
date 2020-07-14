@@ -28,30 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new FontAwesome.Sharp.IconButton();
             this.lbName = new Guna.UI.WinForms.GunaLabel();
             this.gunaLb = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.lbStartDate = new Guna.UI.WinForms.GunaLabel();
             this.lbEndDate = new Guna.UI.WinForms.GunaLabel();
+            this.btnEdit = new FontAwesome.Sharp.IconButton();
+            this.cbIsDone = new Guna.UI.WinForms.GunaCheckBox();
             this.SuspendLayout();
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnDelete.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.btnDelete.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.IconSize = 32;
-            this.btnDelete.Location = new System.Drawing.Point(578, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Rotation = 0D;
-            this.btnDelete.Size = new System.Drawing.Size(59, 36);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lbName
             // 
@@ -59,7 +43,7 @@
             this.lbName.BackColor = System.Drawing.Color.Transparent;
             this.lbName.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbName.ForeColor = System.Drawing.Color.White;
-            this.lbName.Location = new System.Drawing.Point(27, 10);
+            this.lbName.Location = new System.Drawing.Point(73, 28);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(81, 20);
             this.lbName.TabIndex = 4;
@@ -109,17 +93,47 @@
             this.lbEndDate.TabIndex = 9;
             this.lbEndDate.Text = "2008-11-11 13:23:44";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnEdit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEdit.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.btnEdit.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnEdit.IconSize = 32;
+            this.btnEdit.Location = new System.Drawing.Point(578, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Rotation = 0D;
+            this.btnEdit.Size = new System.Drawing.Size(59, 36);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // cbIsDone
+            // 
+            this.cbIsDone.BaseColor = System.Drawing.Color.White;
+            this.cbIsDone.CheckedOffColor = System.Drawing.Color.Gray;
+            this.cbIsDone.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.cbIsDone.FillColor = System.Drawing.Color.White;
+            this.cbIsDone.Location = new System.Drawing.Point(31, 28);
+            this.cbIsDone.Name = "cbIsDone";
+            this.cbIsDone.Size = new System.Drawing.Size(20, 20);
+            this.cbIsDone.TabIndex = 11;
+            this.cbIsDone.CheckedChanged += new System.EventHandler(this.cbIsDone_CheckedChanged_1);
+            // 
             // UCCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.Controls.Add(this.cbIsDone);
             this.Controls.Add(this.lbEndDate);
             this.Controls.Add(this.lbStartDate);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaLb);
             this.Controls.Add(this.lbName);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Name = "UCCollection";
             this.Size = new System.Drawing.Size(640, 100);
             this.Click += new System.EventHandler(this.UCCollection_Click);
@@ -130,11 +144,12 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton btnDelete;
+        private FontAwesome.Sharp.IconButton btnEdit;
         private Guna.UI.WinForms.GunaLabel lbName;
         private Guna.UI.WinForms.GunaLabel gunaLb;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel lbStartDate;
         private Guna.UI.WinForms.GunaLabel lbEndDate;
+        private Guna.UI.WinForms.GunaCheckBox cbIsDone;
     }
 }

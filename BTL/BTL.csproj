@@ -184,6 +184,24 @@
     <Compile Include="Forms\CardForm.Designer.cs">
       <DependentUpon>CardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditBoard.Designer.cs">
+      <DependentUpon>EditBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditCard.Designer.cs">
+      <DependentUpon>EditCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditTask.Designer.cs">
+      <DependentUpon>EditTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +262,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardForm.resx">
       <DependentUpon>CardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditBoard.resx">
+      <DependentUpon>EditBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditCard.resx">
+      <DependentUpon>EditCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditTask.resx">
+      <DependentUpon>EditTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>

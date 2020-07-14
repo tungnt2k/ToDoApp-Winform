@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BTL.Forms;
 using Task = BTL.Models.Task;
 
 namespace BTL.Component
@@ -15,6 +16,8 @@ namespace BTL.Component
     public partial class UCTask : System.Windows.Forms.UserControl
     {
         private Task task;
+
+        public event EventHandler DataUpdated;
         public UCTask(Task task)
         {
             InitializeComponent();
@@ -52,6 +55,21 @@ namespace BTL.Component
                 loadData();
             }
             
+        }
+
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+            EditTask et = new EditTask(task);
+            et.DataUpdated += new EventHandler(EditTask_DataUpdated);
+            et.Show();
+        }
+
+        protected void EditTask_DataUpdated(object sender, EventArgs e)
+        {
+            if (this.DataUpdated!= null)
+            {
+                this.DataUpdated(sender, e);
+            }
         }
     }
 }

@@ -62,6 +62,7 @@
             // 
             // flpCards
             // 
+            this.flpCards.AutoScroll = true;
             this.flpCards.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpCards.Location = new System.Drawing.Point(50, 0);
             this.flpCards.Name = "flpCards";
