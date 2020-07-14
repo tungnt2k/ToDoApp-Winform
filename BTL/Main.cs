@@ -90,7 +90,9 @@ namespace BTL
             BoardForm bf = new BoardForm();
             bf.BoardClick += new EventHandler<BoardEventArgs>(BoardClick);
             OpenChildForm(bf);
-            
+
+            AlertForm af = new AlertForm();
+            af.setAlert("Chó Hạnh", AlertForm.alertTypeEnum.Warning);
         }
 
         protected void BoardClick(object sender, BoardEventArgs e)
