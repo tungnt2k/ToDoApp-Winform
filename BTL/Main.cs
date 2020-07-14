@@ -22,6 +22,8 @@ namespace BTL
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+
+        private bool Noti;
         public Main()
         {
             InitializeComponent();
@@ -33,6 +35,11 @@ namespace BTL
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            using (var dbContext = new TODOContext())
+            {
+                Noti = dbContext.UserSettings.Find(1).Noti;
+            }
         }
         private struct RGBColors
         {
@@ -121,6 +128,7 @@ namespace BTL
         private void iconButton4_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new SettingForm());
         }
 
         private void gunaPictureBox1_Click(object sender, EventArgs e)
@@ -163,7 +171,10 @@ namespace BTL
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            AlertForm af = new AlertForm();
+            af.setAlert("Your program has been minimized to system tray",AlertForm.alertTypeEnum.Info);
+            this.Hide();
+            notifyIcon1.Visible = true;
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -181,6 +192,35 @@ namespace BTL
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            OpenChildForm(new SettingForm());
+            notifyIcon1.Visible = false;
+        }
+
+        private void tODOAPPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

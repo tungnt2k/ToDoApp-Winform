@@ -59,7 +59,7 @@
             // 
             this.switchNoti.BaseColor = System.Drawing.SystemColors.Control;
             this.switchNoti.CheckedOffColor = System.Drawing.Color.DarkGray;
-            this.switchNoti.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.switchNoti.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.switchNoti.FillColor = System.Drawing.Color.White;
             this.switchNoti.Location = new System.Drawing.Point(487, 288);
             this.switchNoti.Name = "switchNoti";

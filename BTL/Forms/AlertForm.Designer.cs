@@ -51,7 +51,7 @@
             // 
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::BTL.Properties.Resources.Multiply_18px;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(350, 37);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(427, 37);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
             this.gunaPictureBox2.Size = new System.Drawing.Size(18, 18);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -73,11 +73,11 @@
             // lbText
             // 
             this.lbText.AutoSize = true;
-            this.lbText.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lbText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbText.ForeColor = System.Drawing.Color.Gainsboro;
             this.lbText.Location = new System.Drawing.Point(58, 27);
             this.lbText.Name = "lbText";
-            this.lbText.Size = new System.Drawing.Size(113, 28);
+            this.lbText.Size = new System.Drawing.Size(86, 20);
             this.lbText.TabIndex = 3;
             this.lbText.Text = "gunaLabel1";
             // 
@@ -90,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(171)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(380, 80);
+            this.ClientSize = new System.Drawing.Size(457, 80);
             this.Controls.Add(this.lbText);
             this.Controls.Add(this.gunaPictureBox2);
             this.Controls.Add(this.gunaPictureBox1);
