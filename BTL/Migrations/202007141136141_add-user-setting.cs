@@ -11,7 +11,7 @@ namespace BTL.Migrations
                 "dbo.UserSettings",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: false),
                         Noti = c.Boolean(nullable: false),
                         StartWithWin = c.Boolean(nullable: false),
                     })

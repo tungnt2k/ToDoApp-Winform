@@ -8,17 +8,6 @@ namespace BTL
 {
     public class CheckTask
     {
-        public static int checkPendingTask()
-        {
-            int num;
-            using (var dbContext = new TODOContext())
-            {
-                num = dbContext.Tasks.Where(t => t.IsDone == false).Count();
-            }
-
-            return num;
-        }
-
         public static int checkPendingCard()
         {
             int num;
@@ -35,7 +24,10 @@ namespace BTL
             int num;
             using (var dbContext = new TODOContext())
             {
-                num = dbContext.Cards.Where(c => c.EndTime < DateTime.Now).Count();
+                num = dbContext.Cards.Where(c => c.EndTime < DateTime.Now)
+                    .Where(c=>c.IsDone== false)
+                    .Where(c=>c.Notification==true)
+                    .Count();
             }
 
             return num;

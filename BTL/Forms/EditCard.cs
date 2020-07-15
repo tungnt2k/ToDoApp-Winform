@@ -21,10 +21,13 @@ namespace BTL.Forms
             InitializeComponent();
             card = c;
             tbCardName.Text = card.Name;
-            dtpStartTime.Value = card.StartTime;
-            dtpEndTime.Value = card.EndTime;
+            dateStartTime.Value = card.StartTime.Date;
+            dateEndTime.Value = card.EndTime.Date;
+            timeStartTime.Value = card.StartTime;
+            timeEndTime.Value = card.EndTime;
             cbIsDone.Checked = card.IsDone;
             switchNoti.Checked = card.Notification;
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -32,8 +35,8 @@ namespace BTL.Forms
             using (var dbContext = new TODOContext())
             {
                 card.Name = tbCardName.Text;
-                card.StartTime = dtpStartTime.Value;
-                card.EndTime = dtpEndTime.Value;
+                card.StartTime = dateStartTime.Value.Date + timeStartTime.Value.TimeOfDay;
+                card.EndTime = dateEndTime.Value.Date + timeEndTime.Value.TimeOfDay;
                 card.IsDone = cbIsDone.Checked;
                 card.Notification = switchNoti.Checked;
                 card.UpdatedAt = DateTime.Now;

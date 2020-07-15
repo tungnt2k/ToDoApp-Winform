@@ -34,12 +34,14 @@
             this.tbCardName = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.dtpEndTime = new Guna.UI.WinForms.GunaDateTimePicker();
-            this.dtpStartTime = new Guna.UI.WinForms.GunaDateTimePicker();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.dateStartTime = new System.Windows.Forms.DateTimePicker();
+            this.dateEndTime = new System.Windows.Forms.DateTimePicker();
+            this.timeStartTime = new System.Windows.Forms.DateTimePicker();
+            this.timeEndTime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // cbIsDone
@@ -116,50 +118,6 @@
             this.gunaLabel3.TabIndex = 5;
             this.gunaLabel3.Text = "End Time";
             // 
-            // dtpEndTime
-            // 
-            this.dtpEndTime.BaseColor = System.Drawing.Color.White;
-            this.dtpEndTime.BorderColor = System.Drawing.Color.Silver;
-            this.dtpEndTime.CustomFormat = null;
-            this.dtpEndTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtpEndTime.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpEndTime.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpEndTime.ForeColor = System.Drawing.Color.Black;
-            this.dtpEndTime.Location = new System.Drawing.Point(183, 220);
-            this.dtpEndTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpEndTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.OnHoverBaseColor = System.Drawing.Color.White;
-            this.dtpEndTime.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpEndTime.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpEndTime.OnPressedColor = System.Drawing.Color.Black;
-            this.dtpEndTime.Size = new System.Drawing.Size(223, 30);
-            this.dtpEndTime.TabIndex = 6;
-            this.dtpEndTime.Text = "Monday, July 13, 2020";
-            this.dtpEndTime.Value = new System.DateTime(2020, 7, 13, 8, 4, 9, 760);
-            // 
-            // dtpStartTime
-            // 
-            this.dtpStartTime.BaseColor = System.Drawing.Color.White;
-            this.dtpStartTime.BorderColor = System.Drawing.Color.Silver;
-            this.dtpStartTime.CustomFormat = null;
-            this.dtpStartTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtpStartTime.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpStartTime.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpStartTime.ForeColor = System.Drawing.Color.Black;
-            this.dtpStartTime.Location = new System.Drawing.Point(183, 156);
-            this.dtpStartTime.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpStartTime.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpStartTime.Name = "dtpStartTime";
-            this.dtpStartTime.OnHoverBaseColor = System.Drawing.Color.White;
-            this.dtpStartTime.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpStartTime.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dtpStartTime.OnPressedColor = System.Drawing.Color.Black;
-            this.dtpStartTime.Size = new System.Drawing.Size(223, 30);
-            this.dtpStartTime.TabIndex = 7;
-            this.dtpStartTime.Text = "Monday, July 13, 2020";
-            this.dtpStartTime.Value = new System.DateTime(2020, 7, 13, 8, 4, 9, 760);
-            // 
             // gunaLabel4
             // 
             this.gunaLabel4.AutoSize = true;
@@ -201,6 +159,40 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // dateStartTime
+            // 
+            this.dateStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateStartTime.Location = new System.Drawing.Point(172, 166);
+            this.dateStartTime.Name = "dateStartTime";
+            this.dateStartTime.Size = new System.Drawing.Size(147, 22);
+            this.dateStartTime.TabIndex = 14;
+            // 
+            // dateEndTime
+            // 
+            this.dateEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateEndTime.Location = new System.Drawing.Point(172, 230);
+            this.dateEndTime.Name = "dateEndTime";
+            this.dateEndTime.Size = new System.Drawing.Size(147, 22);
+            this.dateEndTime.TabIndex = 15;
+            // 
+            // timeStartTime
+            // 
+            this.timeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeStartTime.Location = new System.Drawing.Point(370, 166);
+            this.timeStartTime.Name = "timeStartTime";
+            this.timeStartTime.ShowUpDown = true;
+            this.timeStartTime.Size = new System.Drawing.Size(145, 22);
+            this.timeStartTime.TabIndex = 16;
+            // 
+            // timeEndTime
+            // 
+            this.timeEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeEndTime.Location = new System.Drawing.Point(370, 230);
+            this.timeEndTime.Name = "timeEndTime";
+            this.timeEndTime.ShowUpDown = true;
+            this.timeEndTime.Size = new System.Drawing.Size(145, 22);
+            this.timeEndTime.TabIndex = 17;
+            // 
             // EditCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -208,18 +200,21 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(631, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.timeEndTime);
+            this.Controls.Add(this.timeStartTime);
+            this.Controls.Add(this.dateEndTime);
+            this.Controls.Add(this.dateStartTime);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.gunaLabel4);
-            this.Controls.Add(this.dtpStartTime);
-            this.Controls.Add(this.dtpEndTime);
             this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.tbCardName);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.switchNoti);
             this.Controls.Add(this.cbIsDone);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "EditCard";
             this.Text = "EditCard";
             this.ResumeLayout(false);
@@ -235,11 +230,13 @@
         private Guna.UI.WinForms.GunaTextBox tbCardName;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaDateTimePicker dtpEndTime;
-        private Guna.UI.WinForms.GunaDateTimePicker dtpStartTime;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DateTimePicker dateStartTime;
+        private System.Windows.Forms.DateTimePicker dateEndTime;
+        private System.Windows.Forms.DateTimePicker timeStartTime;
+        private System.Windows.Forms.DateTimePicker timeEndTime;
     }
 }

@@ -238,6 +238,10 @@
     <Compile Include="Migrations\202007141136141_add-user-setting.Designer.cs">
       <DependentUpon>202007141136141_add-user-setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007151119424_seed-default-data.cs" />
+    <Compile Include="Migrations\202007151119424_seed-default-data.Designer.cs">
+      <DependentUpon>202007151119424_seed-default-data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -318,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007141136141_add-user-setting.resx">
       <DependentUpon>202007141136141_add-user-setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007151119424_seed-default-data.resx">
+      <DependentUpon>202007151119424_seed-default-data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -44,6 +44,12 @@ namespace BTL.Forms
                 dbContext.SaveChanges();
 
             }
+
+            if (switchStartWithWindow.Checked)
+            {
+                AlertForm af = new AlertForm();
+                af.setAlert("The application will start with Window", AlertForm.alertTypeEnum.Info);
+            }
         }
 
         private void switchNoti_CheckedChanged(object sender, EventArgs e)
@@ -53,6 +59,12 @@ namespace BTL.Forms
                 us.Noti = switchNoti.Checked;
                 dbContext.UserSettings.AddOrUpdate(us);
                 dbContext.SaveChanges();
+            }
+
+            if (switchNoti.Checked)
+            {
+                AlertForm af = new AlertForm();
+                af.setAlert("Notifications will be displayed here", AlertForm.alertTypeEnum.Info);
             }
         }
     }

@@ -52,7 +52,7 @@
             this.switchStartWithWindow.CheckedOffColor = System.Drawing.Color.DarkGray;
             this.switchStartWithWindow.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
             this.switchStartWithWindow.FillColor = System.Drawing.Color.White;
-            this.switchStartWithWindow.Location = new System.Drawing.Point(346, 116);
+            this.switchStartWithWindow.Location = new System.Drawing.Point(346, 151);
             this.switchStartWithWindow.Name = "switchStartWithWindow";
             this.switchStartWithWindow.Size = new System.Drawing.Size(40, 22);
             this.switchStartWithWindow.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.gunaLabel2.Location = new System.Drawing.Point(117, 116);
+            this.gunaLabel2.Location = new System.Drawing.Point(117, 153);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(131, 20);
             this.gunaLabel2.TabIndex = 3;

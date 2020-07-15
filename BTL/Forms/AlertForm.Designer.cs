@@ -97,6 +97,7 @@
             this.Controls.Add(this.gunaPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AlertForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AlertForm";
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();

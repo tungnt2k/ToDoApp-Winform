@@ -1,3 +1,5 @@
+using BTL.Models;
+
 namespace BTL.Migrations
 {
     using System;
@@ -18,6 +20,7 @@ namespace BTL.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+           
         }
     }
 }

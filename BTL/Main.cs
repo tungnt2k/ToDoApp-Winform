@@ -36,10 +36,7 @@ namespace BTL
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-            using (var dbContext = new TODOContext())
-            {
-                Noti = dbContext.UserSettings.Find(1).Noti;
-            }
+            
         }
         private struct RGBColors
         {
@@ -97,9 +94,6 @@ namespace BTL
             BoardForm bf = new BoardForm();
             bf.BoardClick += new EventHandler<BoardEventArgs>(BoardClick);
             OpenChildForm(bf);
-
-            AlertForm af = new AlertForm();
-            af.setAlert("Chó Hạnh", AlertForm.alertTypeEnum.Warning);
         }
 
         protected void BoardClick(object sender, BoardEventArgs e)
@@ -220,6 +214,20 @@ namespace BTL
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            using (var dbContext = new TODOContext())
+            {
+                Noti = dbContext.UserSettings.Find(1).Noti;
+            }
+            if (Noti)
+            {
+                int num = CheckTask.checkOutOfDatelineCard();
+                if (num > 0)
+                {
+                    AlertForm af = new AlertForm();
+                    af.setAlert(String.Format("You have {0} unfinished cards !", num), AlertForm.alertTypeEnum.Warning);
+                }
+            }
             
         }
     }
