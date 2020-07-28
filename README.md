@@ -15,8 +15,6 @@ Keep task for everyone
 ## Authors
 
 * **NGUYỄN THANH TÙNG** - *SV ĐH THỦY LỢI* - [tungnt2k](https://github.com/tungnt2k)
-* **HÀ GIA PHONG** - *SV ĐH THỦY LỢI* - [giaphong2k](https://github.com/giaphong2k)
-* **MAI VINH QUANG** - *SV ĐH THỦY LỢI* - [quangmv2k](https://github.com/quangmv2k)
 
 
 
